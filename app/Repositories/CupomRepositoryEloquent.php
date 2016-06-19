@@ -4,15 +4,15 @@ namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodeDelivery\Repositories\UserRepository;
-use CodeDelivery\Models\User;
-use CodeDelivery\Validators\UserValidator;
+use CodeDelivery\Repositories\CupomRepository;
+use CodeDelivery\Models\Cupom;
+use CodeDelivery\Validators\CupomValidator;
 
 /**
- * Class UserRepositoryEloquent
+ * Class CupomRepositoryEloquent
  * @package namespace CodeDelivery\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class CupomRepositoryEloquent extends BaseRepository implements CupomRepository
 {
     /**
      * Specify Model class name
@@ -21,13 +21,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function model()
     {
-        return User::class;
+        return Cupom::class;
     }
 
-    public function getDeliverymans()
-    {
-        return $this->model->where(['role'=>'deliveryman'])->lists('name', 'id');
-    }
     
 
     /**

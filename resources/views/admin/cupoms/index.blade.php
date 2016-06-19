@@ -4,26 +4,28 @@
 @section('content')
 
     <div class="container">
-        <h3>Categorias</h3>
+        <h3>Cupoms</h3>
 
-        <a href="{{route('admin.categories.create')}}" class="btn btn-default">Nova Categoria</a>
+        <a href="{{route('admin.cupoms.create')}}" class="btn btn-default">Novo Cupom</a>
         <br/><br/>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Código</th>
+                <th>Valor</th>
                 <th>Ação</th>
             </tr>
             </thead>
 
             <tbody>
-            @foreach($categories as $category)
+            @foreach($cupoms as $cupom)
                 <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $cupom->id }}</td>
+                    <td>{{ $cupom->code }}</td>
+                    <td>{{ $cupom->value }}</td>
                     <td>
-                        <a href="{{route('admin.categories.edit', ['id'=>$category->id])}}" class="btn btn-default btn-sm">Editar</a>
+                        <a href="{{route('admin.cupoms.edit', ['id'=>$cupom->id])}}" class="btn btn-default btn-sm">Editar</a>
                         <a href="{{}}" class="btn btn-danger btn-sm">Deletar</a>
                     </td>
                 </tr>
@@ -31,7 +33,7 @@
             </tbody>
         </table>
 
-        {!! $categories->render() !!}
+        {!! $cupoms->render() !!}
 
     </div>
 
